@@ -5,7 +5,7 @@ import TablaResultados from '../components/TablaResultados.vue';
 const arrayOfStudents=ref([]);
 
 function AddStudent(){
-  console.log(":"+document.getElementById("input_Name").value);
+  // console.log(":"+document.getElementById("input_Name").value);
   let theName=document.getElementById("input_Name").value;
   let theSubject=document.getElementById("input_Subject").value;
   let theMark=document.getElementById("input_Mark").value;
