@@ -41,7 +41,7 @@ describe('HomeView', () => {
     expect(wrapper2.vm.arrayOfPeople).toStrictEqual([{name:'marianin', subject:'anatomia', mark:6}]);
   });
 
-  it('has the name of the student in the table after clicking the "add"Button', async ()=>{
+  it('has the name of the student in the table after clicking the "add" Button', async ()=>{
     
     // const wrapper = shallowMount(HomeView);
     // wrapper.find("#input_Name").element.value="Prueba_Nombre";
@@ -58,15 +58,25 @@ describe('HomeView', () => {
     await wrapper.find("header div button").trigger('click');
     
     
-    //expect(wrapper.find("#myTable tr:last-of-type td").element.textContent).toBe("Prueba_nombre");
+    expect(wrapper.find("#myTable tr:last-of-type td").element.textContent).toBe("Prueba_nombre");
     //expect(wrapper.find("#input_Name").element.value).toBe("Prueba_nombre");
     
   });
   //https://lmiller1990.github.io/vue-testing-handbook/simulating-user-input.html#a-real-world-example
   //https://lmiller1990.github.io/vue-testing-handbook/testing-emitted-events.html#write-a-component-and-test
 
+  it('has the name of the subject in the table after clicking the "add" Button', async ()=>{
+  
+    await wrapper.find("#input_Name").setValue("Prueba_nombre");
+    await wrapper.find("#input_Subject").setValue("Prueba_asignatura");
+    await wrapper.find("#input_Mark").setValue("10");
+
+    await wrapper.find("header div button").trigger('click');
+    
+    
+    expect(wrapper.find("#myTable tr:last-of-type td:nth-of-type(2)").element.textContent).toBe("Prueba_asignatura");
 
 
-
+  });
 
 })
